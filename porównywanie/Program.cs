@@ -94,53 +94,93 @@ class Program
             {
                 Console.WriteLine("(" + linesFile1[i] + ") linia przesunięcia");
             }
-            for (int i = m; i < gdzie.Count; i++)
+            for (int i = 0; i < gdzie.Count; i++)
             {
                 int index = gdzie[i];
                 if (index > 2 && (i == 0 || index - 3 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile1[index - 3]);
-                    Console.WriteLine(linesFile1[index - 2]);
-                    Console.WriteLine(linesFile1[index - 1]);
+                    Console.WriteLine(linesFile1[index - 3 + m]);
+                    Console.WriteLine(linesFile1[index - 2 + m]);
+                    Console.WriteLine(linesFile1[index - 1 + m]);
                 }
                 else if (index > 1 && (i == 0 || index - 2 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile1[index - 1]);
-                    Console.WriteLine(linesFile1[index - 2]);
+                    Console.WriteLine(linesFile1[index - 2 + m]);
+                    Console.WriteLine(linesFile1[index - 1 + m]);
                 }
                 else if (index > 0 && (i == 0 || index - 1 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile1[index - 1]);
+                    Console.WriteLine(linesFile1[index - 1 + m]);
                 }
 
-                Console.WriteLine("(" + linesFile1[index] + ") linia się różni");
+                Console.WriteLine("(" + linesFile1[index + m] + ") linia się różni");
 
-                if (index < dlugosc - 3 && index + 4 < gdzie[i + 1])
+                if (index < dlugosc - 4 && i + 1 < gdzie.Count - 1 && index + 4 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile1[index + 1]);
-                    Console.WriteLine(linesFile1[index + 2]);
-                    Console.WriteLine(linesFile1[index + 3]);
+                    Console.WriteLine(linesFile1[index + 1 + m]);
+                    Console.WriteLine(linesFile1[index + 2 + m]);
+                    Console.WriteLine(linesFile1[index + 3 + m]);
                 }
-                else if (index < dlugosc - 2 && index + 3 < gdzie[i + 1])
+                else if (index < dlugosc - 3 && i + 1 < gdzie.Count - 1 && index + 3 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile1[index + 1]);
-                    Console.WriteLine(linesFile1[index + 2]);
+                    Console.WriteLine(linesFile1[index + 1 + m]);
+                    Console.WriteLine(linesFile1[index + 2 + m]);
                 }
-                else if (index < dlugosc - 1 && i+1<gdzie.Count -1 && index + 2 < gdzie[i + 1])
+                else if (index < dlugosc - 2 && i + 1 < gdzie.Count - 1 && index + 2 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile1[index + 1]);
+                    Console.WriteLine(linesFile1[index + 1 + m]);
                 }
             }
-            if (linesFile1.Length > linesFile2.Length)
+            if(linesFile1.Length == linesFile2.Length)
             {
-                for (int i = dlugosc; i < linesFile1.Length; i++)
+                if (a == 0)
+                {
+                }
+                else if (a == 1)
+                {
+                    if (linesFile1.Length > linesFile2.Length + e)
+                    {
+                        for (int i = dlugosc - e; i < linesFile1.Length; i++)
+                        {
+                            Console.WriteLine("(" + linesFile1[i] + ") linia nie istnieje w drugim pliku ");
+                        }
+                    }
+                    else if (linesFile1.Length < linesFile2.Length + e)
+                    {
+                        for (int i = dlugosc - e; i < linesFile2.Length; i++)
+                        {
+                            Console.WriteLine("Linia nie istnieje w tym pliku");
+                        }
+                    }
+                }
+                else if (a == 2)
+                {
+                    if (linesFile1.Length + e > linesFile2.Length)
+                    {
+                        for (int i = dlugosc - e; i < linesFile1.Length; i++)
+                        {
+                            Console.WriteLine("(" + linesFile1[i] + ") linia nie istnieje w drugim pliku ");
+                        }
+                    }
+                    else if (linesFile1.Length + e < linesFile2.Length)
+                    {
+                        for (int i = dlugosc - e; i < linesFile2.Length; i++)
+                        {
+                            Console.WriteLine("Linia nie istnieje w tym pliku");
+                        }
+                    }
+                }
+            }
+            else if(linesFile1.Length > linesFile2.Length)
+            {
+                for (int i = dlugosc+e; i < linesFile1.Length; i++)
                 {
                     Console.WriteLine("(" + linesFile1[i] + ") linia nie istnieje w drugim pliku ");
                 }
             }
-            else
+            else if (linesFile1.Length < linesFile2.Length)
             {
-                for (int i = dlugosc; i < linesFile2.Length + m; i++)
+                for (int i = dlugosc+e; i < linesFile2.Length; i++)
                 {
                     Console.WriteLine("Linia nie istnieje w tym pliku");
                 }
@@ -163,48 +203,88 @@ class Program
                 int index = gdzie[i];
                 if (index > 2 && (i == 0 || index - 3 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile2[index - 3]+")");
-                    Console.WriteLine(linesFile2[index - 2]+ " index: " + index + " i: "+i);
-                    Console.WriteLine(linesFile2[index - 1]);
+                    Console.WriteLine(linesFile2[index - 3 + m]);
+                    Console.WriteLine(linesFile2[index - 2 + m]);
+                    Console.WriteLine(linesFile2[index - 1 + m]);
                 }
                 else if (index > 1 && (i == 0 || index - 2 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile2[index - 1]+"*");
-                    Console.WriteLine(linesFile2[index - 2]+" index: " + index + " i: " + i);
+                    Console.WriteLine(linesFile2[index - 2 + m]);
+                    Console.WriteLine(linesFile2[index - 1 + m]);
                 }
                 else if (index > 0 && (i == 0 || index - 1 > gdzie[i - 1]))
                 {
-                    Console.WriteLine(linesFile2[index - 1]+" index: " + index + " i: " + i);
+                    Console.WriteLine(linesFile2[index - 1 + m]);
                 }
 
                 Console.WriteLine("(" + linesFile2[index+m] + ") linia się różni");
 
-                if (index < dlugosc - 4 && index + 4 < gdzie[i + 1])
+                if (index < dlugosc - 4 && i + 1 < gdzie.Count - 1 && index + 4 < gdzie[i + 1])
                 {
                     Console.WriteLine(linesFile2[index + 1+m]);
                     Console.WriteLine(linesFile2[index + 2+m]);
                     Console.WriteLine(linesFile2[index + 3+m]);
                 }
-                else if (index < dlugosc - 3 && index + 3 < gdzie[i + 1])
+                else if (index < dlugosc - 3 && i + 1 < gdzie.Count - 1 && index + 3 < gdzie[i + 1])
                 {
                     Console.WriteLine(linesFile2[index + 1+m]);
                     Console.WriteLine(linesFile2[index + 2+m]);
                 }
-                else if (index < dlugosc - 2 && index + 2 < gdzie[i + 1])
+                else if (index < dlugosc - 2 && i + 1 < gdzie.Count - 1 && index + 2 < gdzie[i + 1])
                 {
                     Console.WriteLine(linesFile2[index + 1+m]);
                 }
             }
-            if (linesFile1.Length < linesFile2.Length)
+            if (linesFile1.Length == linesFile2.Length)
             {
-                for (int i = dlugosc; i < linesFile2.Length; i++)
+                if (a == 0)
+                {
+                }
+                else if (a == 1)
+                {
+                    if (linesFile1.Length < linesFile2.Length + e)
+                    {
+                        for (int i = dlugosc - e; i < linesFile2.Length; i++)
+                        {
+                            Console.WriteLine("(" + linesFile2[i] + ") linia nie istnieje w drugim pliku ");
+                        }
+                    }
+                    else if (linesFile1.Length > linesFile2.Length + e)
+                    {
+                        for (int i = dlugosc - e; i < linesFile2.Length; i++)
+                        {
+                            Console.WriteLine("Linia nie istnieje w tym pliku");
+                        }
+                    }
+                }
+                else if (a == 2)
+                {
+                    if (linesFile1.Length + e < linesFile2.Length)
+                    {
+                        for (int i = dlugosc - e; i < linesFile1.Length; i++)
+                        {
+                            Console.WriteLine("(" + linesFile2[i] + ") linia nie istnieje w drugim pliku ");
+                        }
+                    }
+                    else if (linesFile1.Length + e > linesFile2.Length)
+                    {
+                        for (int i = dlugosc - e; i < linesFile2.Length; i++)
+                        {
+                            Console.WriteLine("Linia nie istnieje w tym pliku");
+                        }
+                    }
+                }
+            }
+            else if (linesFile1.Length < linesFile2.Length)
+            {
+                for (int i = dlugosc + e; i < linesFile2.Length; i++)
                 {
                     Console.WriteLine("(" + linesFile2[i] + ") linia nie istnieje w drugim pliku ");
                 }
             }
-            else
+            else if (linesFile1.Length > linesFile1.Length)
             {
-                for (int i = dlugosc; i < linesFile1.Length+m; i++)
+                for (int i = dlugosc + e; i < linesFile1.Length; i++)
                 {
                     Console.WriteLine("Linia nie istnieje w tym pliku");
                 }
