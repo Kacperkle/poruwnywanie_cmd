@@ -14,7 +14,7 @@ class Program
             int f = dlugosc / 2;
             int a = 0;
             int e = 0;
-            if(f<2)
+            if (f < 2)
             {
                 f = 2;
             }
@@ -26,7 +26,7 @@ class Program
                     gdzie.Add(i);
                 }
             }
-            for (int c = 1;c < f; c++)
+            for (int c = 1; c < f; c++)
             {
                 for (int i = 0; i < dlugosc; i++)
                 {
@@ -73,8 +73,6 @@ class Program
                 }
             }
             Console.WriteLine();
-            Console.WriteLine("a = " + a);
-            Console.WriteLine();
             if (gdzie.Count == 0)
             {
                 Console.WriteLine("Pliki są takie same.");
@@ -87,8 +85,6 @@ class Program
             {
                 m = e;
             }
-            Console.WriteLine("m = " + m);
-            Console.WriteLine();
             Console.WriteLine("Porównywana zawartość pliku 1:");
             for (int i = 0; i < m; i++)
             {
@@ -131,7 +127,7 @@ class Program
                     Console.WriteLine(linesFile1[index + 1 + m]);
                 }
             }
-            if(linesFile1.Length == linesFile2.Length)
+            if (linesFile1.Length == linesFile2.Length)
             {
                 if (a == 0)
                 {
@@ -171,16 +167,16 @@ class Program
                     }
                 }
             }
-            else if(linesFile1.Length > linesFile2.Length)
+            else if (linesFile1.Length > linesFile2.Length)
             {
-                for (int i = dlugosc+e; i < linesFile1.Length; i++)
+                for (int i = dlugosc + e; i < linesFile1.Length; i++)
                 {
                     Console.WriteLine("(" + linesFile1[i] + ") linia nie istnieje w drugim pliku ");
                 }
             }
             else if (linesFile1.Length < linesFile2.Length)
             {
-                for (int i = dlugosc+e; i < linesFile2.Length; i++)
+                for (int i = dlugosc + e; i < linesFile2.Length; i++)
                 {
                     Console.WriteLine("Linia nie istnieje w tym pliku");
                 }
@@ -190,8 +186,6 @@ class Program
             {
                 m = e;
             }
-            Console.WriteLine();
-            Console.WriteLine("m = " + m);
             Console.WriteLine();
             Console.WriteLine("Porównywana zawartość pliku 2:");
             for (int i = 0; i < m; i++)
@@ -217,22 +211,22 @@ class Program
                     Console.WriteLine(linesFile2[index - 1 + m]);
                 }
 
-                Console.WriteLine("(" + linesFile2[index+m] + ") linia się różni");
+                Console.WriteLine("(" + linesFile2[index + m] + ") linia się różni");
 
                 if (index < dlugosc - 4 && i + 1 < gdzie.Count - 1 && index + 4 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile2[index + 1+m]);
-                    Console.WriteLine(linesFile2[index + 2+m]);
-                    Console.WriteLine(linesFile2[index + 3+m]);
+                    Console.WriteLine(linesFile2[index + 1 + m]);
+                    Console.WriteLine(linesFile2[index + 2 + m]);
+                    Console.WriteLine(linesFile2[index + 3 + m]);
                 }
                 else if (index < dlugosc - 3 && i + 1 < gdzie.Count - 1 && index + 3 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile2[index + 1+m]);
-                    Console.WriteLine(linesFile2[index + 2+m]);
+                    Console.WriteLine(linesFile2[index + 1 + m]);
+                    Console.WriteLine(linesFile2[index + 2 + m]);
                 }
                 else if (index < dlugosc - 2 && i + 1 < gdzie.Count - 1 && index + 2 < gdzie[i + 1])
                 {
-                    Console.WriteLine(linesFile2[index + 1+m]);
+                    Console.WriteLine(linesFile2[index + 1 + m]);
                 }
             }
             if (linesFile1.Length == linesFile2.Length)
